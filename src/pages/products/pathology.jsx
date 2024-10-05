@@ -35,16 +35,16 @@ const productData = [
 ];
 
 const informationItems = [
-  {icon:<DatasetIcon/>, text: {label:"Dataset Name:", value: "Pathology Dataset"}, color : 'primary' },
+  // {icon:<DatasetIcon/>, text: {label:"Dataset Name:", value: "Pathology Dataset"}, color : 'primary' },
   {icon:<NumbersIcon/>, text: {label: "Dataset Size:", value : "8"}, color: "primary" },
   {icon:<LaunchIcon />, text: {label: "Dataset Field:", value : "Medical"} , color: "primary"},
   {icon:<FilterIcon />, text: {label: "Data Type:", value : "Image-Caption Pairs" }, color: "primary"},
 ]
 
 const qualityItems = [
-  {icon:<NumbersIcon/>, text: {label:"Quantity Score:", value: "Pathology Dataset"}, color : 'primary' },
-  {icon: <FilterIcon />,text: {label: "CLIP Score", value : "8"}, color: "primary" },
-  {icon:<LaunchIcon />, text: {label: "Diversity Score:", value : "Medical"} , color: "primary"}
+  {icon:<NumbersIcon/>, text: {label:"Quantity Score:", value: "Based on the number of the selected data samples"}, color : '#91d5ff' },
+  {icon: <FilterIcon />,text: {label: "CLIP Score: ", value : "Based on the overall CLIP Score of the selected data samples "}, color: "#52c41a" },
+  {icon:<LaunchIcon />, text: {label: "Diversity Score: ", value : "Based on the overal label distribution of the selected data samples"} , color: "#ffd666"}
 ]
 
 function PathologyProduct() {
@@ -69,16 +69,16 @@ const selectedIds = selectedProducts.join(',');
 
   return (
     <>
-<MainCard title="Pathology Dataset (Multimodal Dataset)" spacing={2} >  
-<Grid container spacing={4}>
-<Grid item  xs={12} sm={6} md={6} lg={6}>
-        <></>
+    <Grid container spacing={2}>
+<Grid item  xs={12} sm={4} md={4} lg={4}> 
         <ListItemCard title={'Dataset Information'} items={informationItems}/>
     </Grid>
-    <Grid item  xs={12} sm={6} md={6} lg={6}>
-        <Typography variant='h5'>Dataset Quality</Typography>
+    <Grid item  xs={12} sm={8} md={8} lg={8}> 
+        <ListItemCard title={'Dataset Quality'} items={qualityItems}/>
     </Grid>
     </Grid>
+<MainCard title="Pathology Dataset (Multimodal Dataset)" spacing={2} >  
+
       <Container>
       {/* 产品展示网格 */}
         <Grid container spacing={4}>

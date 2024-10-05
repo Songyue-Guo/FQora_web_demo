@@ -4,7 +4,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'; // 示例图标
 
 const ListItemCard = ({ title, items }) => {
   return (
-    <Card sx={{ maxWidth: 500, margin: '16px auto' }}>
+    <Card sx={{ maxWidth: 700, margin: '16px auto' }}>
       <CardContent>
         <Typography variant="h5" component="div">
           {title}
@@ -24,10 +24,10 @@ const ListItemCard = ({ title, items }) => {
                     <Box
                       component="span"
                       sx={{
-                        backgroundColor: item.color,
+                
                         borderRadius: '8px',
                         padding: '2px 8px',
-                        color: '#00796b',
+                        color: item.color,
                       }}
                     >
                       {item.text.value}
