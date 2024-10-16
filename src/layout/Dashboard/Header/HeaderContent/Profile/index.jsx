@@ -124,13 +124,13 @@ export default function Profile() {
                         <Stack direction="row" spacing={1.25} alignItems="center">
                           <Avatar alt="profile user" src={avatar1} sx={{ width: 32, height: 32 }} />
                           <Stack>
-                            <Typography variant="h6">HKUSTGZ MDI</Typography>
+                            <Typography variant="h6">MDI</Typography>
                             <Typography variant="body2" color="text.secondary">
                               Data Seller
                             </Typography>
                           </Stack>
                         </Stack>
-                      </Grid>
+                      </Grid> 
                       <Grid item>
                         <Tooltip title="Logout">
                           <IconButton size="large" sx={{ color: 'text.primary' }}>
