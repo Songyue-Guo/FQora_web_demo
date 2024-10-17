@@ -18,7 +18,7 @@ import SelectableMediaCard from 'components/cards/SelectedMediaCard';
 import { DollarOutlined, ArrowUpOutlined,RubyOutlined,DollarCircleFilled } from '@ant-design/icons';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip } from 'recharts';
 
-// 模拟产品数据
+// 
 const productData = [
   { id: 1, name: 'a very typical bus station', image: gic1,clipScore:0.3308, quantity: 1/8, diversity: 1/8+0.1, cost:24  },
   { id: 2, name: '# of the sports team skates against sports team during their game .', image: gic2, clipScore:0.167, quantity: 1/8, diversity: 1/8-0.04, cost:12  },
@@ -45,7 +45,7 @@ const weight = [0.5,0.3,0.2]
 function GeneralImageCaptionProduct() {
 //   const [searchTerm, setSearchTerm] = useState('');
 
-//   // 筛选产品
+//   // 
 //   const filteredProducts = productData.filter((product) =>
 //     product.name.toLowerCase().includes(searchTerm.toLowerCase())
 //   );

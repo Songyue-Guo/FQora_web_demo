@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import MainCard from 'components/MainCard';
 
 // assets
-import logo from 'assets/images/users/logo.svg';
+import logo from 'assets/images/logo.png';
 import AnimateButton from 'components/@extended/AnimateButton';
 
 // ==============================|| DRAWER CONTENT - NAVIGATION CARD ||============================== //
@@ -20,7 +20,7 @@ export default function NavCard() {
       <Stack alignItems="center" spacing={2.5}>
         <CardMedia component="img" image={logo} sx={{ width: 112 }} />
         <Stack alignItems="center">
-            <Typography variant="h5">Lab</Typography>
+            <Typography variant="h5"></Typography>
           {/* <Typography variant="h5">HKUSTGZ MDI LAB</Typography> */}
         </Stack>
         <AnimateButton>

@@ -6,8 +6,11 @@ import MainCard from 'components/MainCard';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import AnimateButton from 'components/@extended/AnimateButton';
 import SelectableTextCard from 'components/cards/SelectedTextCard';
-import { DollarOutlined } from '@ant-design/icons';
-
+import { DollarOutlined} from '@ant-design/icons';
+import LaunchIcon from '@mui/icons-material/Launch';
+import FilterIcon from '@mui/icons-material/Filter';
+import  NumbersIcon from '@mui/icons-material/Numbers';
+import ListItemCard from 'components/cards/ListItemCard';
 
 const data = [
     {name: "I rented I AM CURIOUS-YELLOW from my video store because of all the controversy that surrounded it when it was first released in 1967. I also heard that at first it was seized by U.S. customs if it ever tried to enter this country, therefore being a fan of films considered 'controversial' I really had to see this for myself.<br /><br />The plot is centered around a young Swedish drama student named Lena who wants to learn everything she can about life. In particular she wants to focus her attentions to making some sort of documentary on what the average Swede thought about certain political issues such as the Vietnam War and race issues in the United States. In between asking politicians and ordinary denizens of Stockholm about their opinions on politics, she has sex with her drama teacher, classmates, and married men.<br /><br />What kills me about I AM CURIOUS-YELLOW is that 40 years ago, this was considered pornographic. Really, the sex and nudity scenes are few and far between, even then it's not shot like some cheaply made porno. While my countrymen mind find it shocking, in reality sex and nudity are a major staple in Swedish cinema. Even Ingmar Bergman, arguably their answer to good old boy John Ford, had sex scenes in his films.<br /><br />I do commend the filmmakers for the fact that any sex shown in the film is shown for artistic purposes rather than just to shock people and make money to be shown in pornographic theaters in America. I AM CURIOUS-YELLOW is a good film for anyone wanting to study the meat and potatoes (no pun intended) of Swedish cinema. But really, this film doesn't have much of a plot.",id: 1}, 
@@ -22,10 +25,16 @@ const data = [
 ]; 
 
 const informationItems = [
-  {icon:'', text: {Label:"Dataset Name:", value: "IMDB Dataset"}, color : '#00796b' },
-  {icon:'', text: {Label: "Dataset Size:", value : "8"}, color: "#00796b" },
-  {icon:'', text: {label: "Dataset Field:", value : "Senmatice Analyize"} , color: "#00796b"},
-  {icon:'', text: {label: "Data Type:", value : "Text" }, color: "#00796b"},
+  // {icon:<NumbersIcon/>, text: {Label:"Dataset Name:", value: "IMDB Dataset"}, color : '#00796b' },
+  {icon:<NumbersIcon/>, text: {label: "Dataset Size:", value : "8"}, color: "#00796b" },
+  {icon:<FilterIcon />, text: {label: "Dataset Field:", value : "Senmatice Analyize"} , color: "#00796b"},
+  {icon:<LaunchIcon />, text: {label: "Data Type:", value : "Text" }, color: "#00796b"},
+]
+
+const qualityItems = [
+  {icon:<NumbersIcon/>, text: {label:"Quantity Score:", value: "Based on the number of the selected data samples"}, color : '#91d5ff' },
+  {icon:<FilterIcon />,text: {label: "GPT Score: ", value : "Based on the overall Quality of the selected data samples "}, color: "#52c41a" },
+  {icon:<LaunchIcon />, text: {label: "Diversity Score: ", value : "Based on the overal label distribution of the selected data samples"} , color: "#ffd666"}
 ]
 
 function GeneralTextProduct() {
@@ -49,17 +58,18 @@ const handleSelect = (id) => {
 const selectedIds = selectedProducts.join(',');
 
   return (
-    <>
+    <>    
+    <Grid container spacing={2}>
+    <Grid item  xs={12} sm={4} md={4} lg={4}> 
+            <ListItemCard title={'Dataset Information'} items={informationItems}/>
+        </Grid>
+        <Grid item  xs={12} sm={8} md={8} lg={8}> 
+            <ListItemCard title={'Dataset Quality'} items={qualityItems}/>
+        </Grid>
+        </Grid>
+
 <MainCard title="IMDB Dataset" spacing={2} >  
-<Grid container spacing={4}>
-<Grid item spacing={0} xs={12} sm={6} md={6} lg={6}>
-        <></>
-        <Typography variant='h5'>Dataset Information</Typography>
-    </Grid>
-    <Grid item spacing={2} xs={12} sm={6} md={6} lg={6}>
-        <Typography variant='h5'>Dataset Quality</Typography>
-    </Grid>
-    </Grid>
+
       <Container>
       {/* 产品展示网格 */}
         <Grid container spacing={4}>

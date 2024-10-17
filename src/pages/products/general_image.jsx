@@ -13,7 +13,11 @@ import gic8 from "assets/images/products/general_image/7.png"
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import AnimateButton from 'components/@extended/AnimateButton';
 import SelectableMediaCard from 'components/cards/SelectedMediaCard';
-import { DollarOutlined } from '@ant-design/icons';
+import { DollarOutlined} from '@ant-design/icons';
+import LaunchIcon from '@mui/icons-material/Launch';
+import FilterIcon from '@mui/icons-material/Filter';
+import  NumbersIcon from '@mui/icons-material/Numbers';
+import ListItemCard from 'components/cards/ListItemCard';
 
 
 // 模拟产品数据
@@ -30,12 +34,16 @@ const productData = [
 ];
 
 const informationItems = [
-  {icon:'', text: {Label:"Dataset Name:", value: "General Image Dataset"}, color : '#00796b' },
-  {icon:'', text: {Label: "Dataset Size:", value : "8"}, color: "#00796b" },
+  {icon:'', text: {label: "Dataset Size:", value : "8"}, color: "#00796b" },
   {icon:'', text: {label: "Dataset Field:", value : "General"} , color: "#00796b"},
   {icon:'', text: {label: "Data Type:", value : "Image" }, color: "#00796b"},
 ]
 
+const qualityItems = [
+  {icon:<NumbersIcon/>, text: {label:"Quantity Score:", value: "Based on the number of the selected data samples"}, color : '#91d5ff' },
+  {icon: <FilterIcon />,text: {label: "HOG Score: ", value : "Based on the overall CLIP Score of the selected data samples "}, color: "#52c41a" },
+  {icon:<LaunchIcon />, text: {label: "Diversity Score: ", value : "Based on the overal label distribution of the selected data samples"} , color: "#ffd666"}
+]
 
 function GeneralImageCaptionProduct() {
 //   const [searchTerm, setSearchTerm] = useState('');
@@ -59,16 +67,15 @@ const selectedIds = selectedProducts.join(',');
 
   return (
     <>
+  <Grid container spacing={2}>
+<Grid item  xs={12} sm={4} md={4} lg={4}> 
+        <ListItemCard title={'Dataset Information'} items={informationItems}/>
+    </Grid>
+    <Grid item  xs={12} sm={8} md={8} lg={8}> 
+        <ListItemCard title={'Dataset Quality'} items={qualityItems}/>
+    </Grid>
+    </Grid>
 <MainCard title="General Image Dataset" spacing={2} >  
-<Grid container spacing={4}>
-<Grid item spacing={0} xs={12} sm={6} md={6} lg={6}>
-        <></>
-        <Typography variant='h5'>Dataset Information</Typography>
-    </Grid>
-    <Grid item spacing={2} xs={12} sm={6} md={6} lg={6}>
-        <Typography variant='h5'>Dataset Quality</Typography>
-    </Grid>
-    </Grid>
       <Container>
       {/* 产品展示网格 */}
         <Grid container spacing={4}>
